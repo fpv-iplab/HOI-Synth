@@ -1,12 +1,12 @@
 # Are Synthetic Data Useful for Egocentric Hand-Object Interaction Detection?
 ## Overview
-[Project Page](https://iplab.dmi.unict.it/HOI-Synth/) - [Paper](https://arxiv.org/pdf/2312.02672)
+[Project Page]() - [Paper](https://arxiv.org/pdf/2312.02672)
 
 ## Updates
 * 01/07/2024: **Accepted at European Conference on Computer Vision (ECCV) 2024!** <br>
 
 ## Citation
-If you use our HOI-Synth benchmark, simulator or this code for your research, please cite our paper:
+If you use our HOI-Synth benchmark, data generation pipeline or this code for your research, please cite our paper:
 ```
 @article{leonardi2023synthetic,
   title={Are Synthetic Data Useful for Egocentric Hand-Object Interaction Detection? An Investigation and the HOI-Synth Domain Adaptation Benchmark},
@@ -50,7 +50,8 @@ Coming soon!
 ## License
 
 ## Ackowledgements
-This research has been supported by the project Future Artificial Intelligence Research (FAIR) – PNRR MUR Cod. PE0000013 - CUP: E63C22001940006
+This research has been supported by the project Future Artificial Intelligence Research (FAIR) – PNRR MUR Cod. PE0000013 - CUP: E63C22001940006 <br>
+This research has been partially supported by the project EXTRA-EYE - PRIN 2022 - CUP E53D23008280006 - Finanziato dall’Unione Europea - Next Generation EU 
 
 ## References
 
