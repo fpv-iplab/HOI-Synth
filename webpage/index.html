@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>HOI-Synth Benchmark</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+        <div class="container col-9 col-lg-4 m-0 justify-content-start">
+            <a href="https://www.unict.it/" class="col-4 col-lg-4" target="_blank">
+                <img class="img-fluid" src="./img/loghi/UniCT-Logo-Nero.png">
+            </a>
+            <a href="https://www.nextvisionlab.it/" class="col-4 col-lg-4" target="_blank">
+                <img class="img-fluid" src="./img/loghi/next_vision_logo.png">
+            </a>
+        </div>
+
+        <button type="button" class="navbar-toggler m-2" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <!--<a href="#abstract" class="nav-item nav-link">Abstract</a>-->
+                <a href="#hoi_synth_pipeline" class="nav-item nav-link">Data Generation Pipeline</a>
+                <a href="#hoi_synth_benchmark" class="nav-item nav-link">HOI-Synth Benchmark</a>
+                <a href="#download" class="nav-item nav-link">Download</a>
+
+                <!-- <a href="#approach" class="nav-item nav-link">Tasks</a>-->
+                <a href="#paper" class="nav-item nav-link">Paper</a>
+                <a href="#people" class="nav-item nav-link">People</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Abstract Start -->
+    <div class="container-fluid p-0 mb-5 position-relative">
+        <a class="anchor" id="abstract"></a>
+        <img class="card-img-bottom" src="img/intro.png" alt="">
+        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
+            <div class="container d-none d-lg-block">
+                <div class="row justify-content-start">
+                    <div class="col-sm-12 col-lg-10">
+                        <h3 class="text-primary mb-3 animated slideInDown">Are Synthetic Data Useful for Egocentric Hand-Object Interaction Detection?</h3>
+                        <p class="text-white mb-4 pb-2 animated slideInRight justify">We investigate the effectiveness of synthetic data in enhancing egocentric hand-object interaction detection. Via extensive experiments and comparative analyses on three egocentric datasets, VISOR , EgoHOS, and ENIGMA-51, our findings reveal how to exploit synthetic data for the HOI detection task when real labeled data are scarce or unavailable. Specifically, by leveraging only 10% of real labeled data, we achieve improvements in Overall AP compared to baselines trained exclusively on real data of: +5.67% on EPIC-KITCHENS VISOR, +8.24% on EgoHOS, and +11.69% on ENIGMA-51. Our analysis is supported by a novel data generation pipeline and the newly introduced HOI-Synth benchmark which augments existing datasets with synthetic images of hand-object interactions automatically labeled with hand-object contact states, bounding boxes, and pixel-wise segmentation masks.</p>
+                        <a href="https://github.com/fpv-iplab/HOI-Synth" target="_blank" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">GitHub</a>
+                        <a href="https://arxiv.org/pdf/2312.02672" target="_blank" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Paper</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Abstract End -->
+
+    <!-- Abstract xs-sd-md Start -->
+    <div class="container-xxl fs-6 pb-5 wow fadeInUp d-sm-block d-lg-none px-3" data-wow-delay="0.1s">
+        <div class="text-center mt-2">
+            <h4 class="text-primary mb-3 animated slideInDown">Are Synthetic Data Useful for Egocentric Hand-Object Interaction Detection?</h4>
+            <p class="animated slideInRight justify">We investigate the effectiveness of synthetic data in enhancing egocentric hand-object interaction detection. Via extensive experiments and comparative analyses on three egocentric datasets, VISOR , EgoHOS, and ENIGMA-51, our findings reveal how to exploit synthetic data for the HOI detection task when real labeled data are scarce or unavailable. Specifically, by leveraging only 10% of real labeled data, we achieve improvements in Overall AP compared to baselines trained exclusively on real data of: +5.67% on EPIC-KITCHENS VISOR, +8.24% on EgoHOS, and +11.69% on ENIGMA-51. Our analysis is supported by a novel data generation pipeline and the newly introduced HOI-Synth benchmark which augments existing datasets with synthetic images of hand-object interactions automatically labeled with hand-object contact states, bounding boxes, and pixel-wise segmentation masks.</p>
+        </div>
+        <div class="text-center">
+            <a href="https://github.com/fpv-iplab/HOI-Synth" target="_blank" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">GitHub</a>
+            <a href="https://arxiv.org/pdf/2312.02672" target="_blank" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Paper</a>
+        </div>
+    </div>
+    <!-- Abstract xs-sd-md End -->
+
+    <hr class="divider">
+
+    <!-- HOI-Synth Data Generation Pipeline and Simulator Start -->
+    <div class="container-xxl fs-6 py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <a class="anchor" id="hoi_synth_pipeline"></a>
+        <div class="text-center">
+            <h6 class="section-title bg-white text-center text-primary px-3">HOI-Synth Data Generation Pipeline</h6>
+        </div>
+        <div class="text-left text-lg-left mt-sm-2">
+            <p class="mb-4 justify"><i class="fa fa-arrow-right text-primary me-2"></i>Our pipeline relies on state-of-the-art datasets and components to enable an accurate generation of egocentric images of hand-object interactions. We first select a random hand-object grasp from the DexGraspNet dataset, which is fit to a randomly generated human model and integrated with the appropriate object mesh specified in the hand-object grasp. We then select a random environment from the HM3D dataset and place the human-object model in the environment. We finally place a virtual camera at human eye level to capture the scene from the first-person point of view. </p>
+        </div>
+        <video class="img-fluid" src="video/hoi_synth_pipeline.mp4" autoplay muted loop>Your browser does not support the video tag.</video>
+    </div>
+    <!-- HOI-Synth Data Generation Pipeline End -->
+
+    <hr class="divider">
+
+    <!-- HOI-Synth Benchmark Start -->
+    <div class="container-xxl py-5">
+        <a class="anchor" id="hoi_synth_benchmark"></a>
+        <div class="text-center">
+            <h6 class="section-title bg-white text-center text-primary px-3">HOI-Synth Benchmark</h6>
+            <div class="text-left text-lg-left mt-sm-2">
+                <p class="mb-4 justify"><i class="fa fa-arrow-right text-primary me-2"></i>The HOI-Synth benchmark extends three established datasets of egocentric images designed to study hand-object interaction detection, EPIC-KITCHENS VISOR, EgoHOS, and ENIGMA-51, with automatically labeled synthetic data obtained through the proposed HOI generation pipeline. </p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row g-5 justify-content-center">
+                <div class="col-lg-8 col-sm-8 col-8 wow fadeInUp" data-wow-delay="0.1s">
+                    <img class="img-fluid" src="img/HOI-Synth.png" alt="" style="object-fit: cover;">
+                </div>
+                
+                <div class="col-lg-12 col-sm-12 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="container">
+                        <div class="row g-4">
+
+                            <div class="col-lg-3 col-sm-6 col-6 wow fadeInUp" data-wow-delay="0.1s">
+                                <div class="service-item text-center pt-3">
+                                    <div class="p-4">
+                                        <i class="fa fa-3x fa-images text-primary mb-4"></i>
+                                        <h5 class="mb-3">RGB<br/> Images</h5>
+                                        <h3 data-toggle="counter-up">75460</h3>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-sm-6 col-6 wow fadeInUp" data-wow-delay="0.3s">
+                                <div class="service-item text-center pt-3">
+                                    <div class="p-4">
+                                        <i class="fa fa-3x fa-hand-paper text-primary mb-4"></i>
+                                        <h5 class="mb-3">Hand<br/> annotations</h5>
+                                        <h3 data-toggle="counter-up">141778</h3>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-sm-6 col-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <div class="service-item text-center pt-3">
+                                    <div class="p-4">
+                                        <i class="fa fa-3x fa-object-group text-primary mb-4"></i>
+                                        <h5 class="mb-3">Object<br/> annotations</h5>
+                                        <h3 data-toggle="counter-up">101525</h3>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-sm-6 col-6 wow fadeInUp" data-wow-delay="0.7s">
+                                <div class="service-item text-center pt-3">
+                                    <div class="p-4">
+                                        <i class="fa fa-3x fa-tools text-primary mb-4"></i>
+                                        <h5 class="mb-3">Interaction<br/> frames</h5>
+                                        <h3 data-toggle="counter-up">101625</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HOI-Synth Benchmark End -->
+    <hr class="divider">
+
+
+    <!-- Annotation Start -->
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <a class="anchor" id="download"></a>
+        <div class="text-center">
+            <h6 class="section-title bg-white text-center text-primary px-3">Download</h6>
+        </div>
+        <div class="container">
+            <div class="row g-4">
+
+                <div class="col-lg-3 col-sm-6 col-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item text-center pt-3">
+                        <div class="ribbon">Data</div>
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-image text-primary mb-4"></i>
+                            <h5 class="mb-3">Frames</h5>
+                            <a class="btn btn-primary" href="https://github.com/fpv-iplab/HOI-Synth?tab=readme-ov-file#hoi-synth-benchmark">Download</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item text-center pt-3">
+                        <div class="ribbon">Data</div>
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-edit text-primary mb-4"></i>
+                            <h5 class="mb-3">Annotations</h5>
+                            <a class="btn btn-primary" href="https://github.com/fpv-iplab/HOI-Synth?tab=readme-ov-file#hoi-synth-benchmark">Download</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="service-item text-center pt-3">
+                        <div class="ribbon">Baselines</div>
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-file-alt text-primary mb-4"></i>
+                            <h5 class="mb-3">Baselines</h5>
+                            <a class="btn btn-primary" href="https://github.com/fpv-iplab/HOI-Synth?tab=readme-ov-file#baselines">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-6 wow fadeInUp" data-wow-delay="0.9s">
+                    <div class="service-item text-center pt-3">
+                        <div class="ribbon">Pipeline</div>
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-cube text-primary mb-4"></i>
+                            <h5 class="mb-3">Data Generation Pipeline</h5>
+                            <a class="btn btn-primary" href="https://github.com/fpv-iplab/HOI-Synth?tab=readme-ov-file#data-generation-pipeline">Download</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+    </div>
+
+    <hr class="divider">
+
+    <!-- Benchmark and baselines results -->
+    <!--<div class="container-xxl py-5 category">
+        <a class="anchor" id="approach"></a>
+
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Tasks</h6>
+            </div>
+             <div class="row g-3">
+                <div class="col-lg-12 col-md-12">
+                    <div class="col-lg-12 col-md-12 wow fadeInUp" data-wow-delay="0.1s">
+                        <video width="100%" autoplay="true" loop="" muted="" src="video/schema_rete_loop.mp4" type="video/mp4" ></video>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="row g-3">
+                        <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
+                            <div class="position-relative d-block overflow-hidden">
+                                <img class="img-fluid" src="img/graphical_ehoi_results.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 wow zoomIn" data-wow-delay="0.7s">
+                    <div class="position-relative d-block h-100 overflow-hidden">
+                        <video width="100%" autoplay="true" loop="" muted="" src="video/video_metodo.mp4" type="video/mp4"></video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <!-- Benchmark and baselines results End -->
+
+    <hr class="divider">
+
+    <!-- Paper Start -->
+    <div class="container-xxl py-5">
+        <a class="anchor" id="paper"></a>
+
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Paper</h6>
+            </div>
+            <div class="container text-left">
+                <p class="mb-4"><i class="fa fa-arrow-right text-primary me-2"></i>Leonardi, R., Furnari, A., Ragusa, F., & Farinella, G. M. (2023). Are Synthetic Data Useful for Egocentric Hand-Object Interaction Detection? An Investigation and the HOI-Synth Domain Adaptation Benchmark. arXiv preprint arXiv:2312.02672. Cite our paper: <a href="https://arxiv.org/pdf/2312.02672" target="_blank">ArXiv</a>. </p>
+<pre>@article{leonardi2023synthetic,
+    title={Are Synthetic Data Useful for Egocentric Hand-Object Interaction Detection? An Investigation and the HOI-Synth Domain Adaptation Benchmark},
+    author={Leonardi, Rosario and Furnari, Antonino and Ragusa, Francesco and Farinella, Giovanni Maria},
+    journal={arXiv preprint arXiv:2312.02672},
+    year={2023}
+}</pre>
+                <p class="mb-4"><i class="fa fa-arrow-right text-primary me-2"></i>Visit our page dedicated to <a class="border-bottom" href="https://iplab.dmi.unict.it/fpv/" target="_blank">First Person Vision Research</a> for other related publications.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Paper End -->
+
+    <hr class="divider">
+
+    <!-- Team Start -->
+    <div class="container-xxl py-5">
+        <a class="anchor" id="people"></a>
+
+        <div class="container">
+            
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3 mb-5">People</h6>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-3 col-sm-6 col-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item bg-light">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="img/faces/RL.jpeg" alt="">
+                        </div>
+                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
+                            <div class="bg-light d-flex justify-content-center pt-2 px-1">
+                                <a class="btn btn-sm-square btn-primary mx-1" href="https://scholar.google.com/citations?user=yKMoekcAAAAJ&hl=it&authuser=1" target="_blank"><i class="fa fa-graduation-cap"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-0">Rosario <br/> Leonardi</h5>
+                            <small><a class="btn btn-link" href="https://iplab.dmi.unict.it/fpv/" target="_blank">FPV@IPLAB</a></small><br>
+                            <small><a class="btn btn-link" href="https://www.nextvisionlab.it/" target="_blank">Next Vision s.r.l.</a></small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-sm-6 col-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-item bg-light">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="img/faces/AF.jpg" alt="">
+                        </div>
+                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
+                            <div class="bg-light d-flex justify-content-center pt-2 px-1">
+                                <a class="btn btn-sm-square btn-primary mx-1" href="https://scholar.google.com/citations?user=eXREn_EAAAAJ&hl=it&authuser=1" target="_blank"><i class="fa fa-graduation-cap"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href="https://www.antoninofurnari.it/" target="_blank"><i class="fa fa-chalkboard"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-0">Antonino <br/> Furnari</h5>
+                            <small><a class="btn btn-link" href="https://iplab.dmi.unict.it/fpv/" target="_blank">FPV@IPLAB</a></small><br>
+                            <small><a class="btn btn-link" href="https://www.nextvisionlab.it/" target="_blank">Next Vision s.r.l.</a></small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-sm-6 col-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="team-item bg-light">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="img/faces/FR.jpg" alt="">
+                        </div>
+                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
+                            <div class="bg-light d-flex justify-content-center pt-2 px-1">
+                                <a class="btn btn-sm-square btn-primary mx-1" href="https://scholar.google.com/citations?user=_W8TnNgAAAAJ&hl=it&authuser=1" target="_blank"><i class="fa fa-graduation-cap"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href="https://iplab.dmi.unict.it/ragusa/" target="_blank"><i class="fa fa-chalkboard"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-0">Francesco <br/> Ragusa</h5>
+                            <small><a class="btn btn-link" href="https://iplab.dmi.unict.it/fpv/" target="_blank">FPV@IPLAB</a></small><br>
+                            <small><a class="btn btn-link" href="https://www.nextvisionlab.it/" target="_blank">Next Vision s.r.l.</a></small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-sm-6 col-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="team-item bg-light">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="img/faces/GMF.jpg" alt="">
+                        </div>
+                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
+                            <div class="bg-light d-flex justify-content-center pt-2 px-1">
+                                <a class="btn btn-sm-square btn-primary mx-1" href="https://scholar.google.com/citations?user=YwQboCoAAAAJ&hl=it&authuser=1" target="_blank"><i class="fa fa-graduation-cap"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href="https://www.dmi.unict.it/farinella/" target="_blank"><i class="fa fa-chalkboard"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-0">Giovanni Maria<br/> Farinella</h5>
+                            <small><a class="btn btn-link" href="https://iplab.dmi.unict.it/fpv/" target="_blank">FPV@IPLAB</a></small><br>
+                            <small><a class="btn btn-link" href="https://www.nextvisionlab.it/" target="_blank">Next Vision s.r.l.</a></small>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            
+        </div>
+    </div>
+    <!-- Team End -->
+
+    <!-- Loghi Start -->
+    <div class="container col-12 col-sm-12 col-lg-8 wow fadeIn" data-wow-delay="0.7s">
+        <div class="row">
+            <div class="col-lg-4 col-sm-4 col-4">
+                <img class="img-fluid" src="./img/loghi/UniCT-Logo-Nero.png">
+            </div>
+            <div class="col-lg-4 col-sm-4 col-4">
+                <img class="img-fluid" src="./img/loghi/next_vision_logo.png">
+            </div>
+            <div class="col-lg-4 col-sm-4 col-4">
+                <img class="img-fluid" src="./img/loghi/iplablogo.jpg">
+            </div>
+        </div>
+    </div>
+    <!-- Loghi End -->
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5">
+        <div class="container">
+            <!-- Acknowledgments Start -->
+            <div class="row">
+                <p class="mb-4">This research has been supported by the project Future Artificial Intelligence Research (FAIR) – PNRR MUR Cod. PE0000013 - CUP: E63C22001940006.</p>
+                <p class="mb-4">This research has been partially supported by the project EXTRA-EYE - PRIN 2022 - CUP E53D23008280006 - Finanziato dall’Unione Europea - Next Generation EU.</p>
+            </div>
+            <!-- Acknowledgments End -->
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="https://iplab.dmi.unict.it/" target="_blank">Image Processing Laboratory 2024</a>.
+                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                        Designed By <a class="border-bottom" href="https://htmlcodex.com" target="_blank">HTML Codex</a>.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
