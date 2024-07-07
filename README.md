@@ -1,6 +1,6 @@
 # Are Synthetic Data Useful for Egocentric Hand-Object Interaction Detection?
 ## Overview
-[Project Page]() - [Paper](https://arxiv.org/pdf/2312.02672)
+[Project Page](https://fpv-iplab.github.io/HOI-Synth/) - [Paper](https://arxiv.org/pdf/2312.02672)
 
 ## Updates
 * 01/07/2024: **Accepted at European Conference on Computer Vision (ECCV) 2024!** <br>
