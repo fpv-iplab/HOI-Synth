@@ -84,7 +84,9 @@
     <div class="container-xxl fs-6 pb-5 wow fadeInUp d-sm-block d-lg-none px-3" data-wow-delay="0.1s">
         <div class="text-center mt-2">
             <h4 class="text-primary mb-3 animated slideInDown">Are Synthetic Data Useful for Egocentric Hand-Object Interaction Detection?</h4>
-            <p class="animated slideInRight justify">We investigate the effectiveness of synthetic data in enhancing egocentric hand-object interaction detection. Via extensive experiments and comparative analyses on three egocentric datasets, VISOR , EgoHOS, and ENIGMA-51, our findings reveal how to exploit synthetic data for the HOI detection task when real labeled data are scarce or unavailable. Specifically, by leveraging only 10% of real labeled data, we achieve improvements in Overall AP compared to baselines trained exclusively on real data of: +5.67% on EPIC-KITCHENS VISOR, +8.24% on EgoHOS, and +11.69% on ENIGMA-51. Our analysis is supported by a novel data generation pipeline and the newly introduced HOI-Synth benchmark which augments existing datasets with synthetic images of hand-object interactions automatically labeled with hand-object contact states, bounding boxes, and pixel-wise segmentation masks.</p>
+            <div class="container">
+                <p class="animated slideInRight justify"><i class="fa fa-arrow-right text-primary me-2"></i>We investigate the effectiveness of synthetic data in enhancing egocentric hand-object interaction detection. Via extensive experiments and comparative analyses on three egocentric datasets, VISOR , EgoHOS, and ENIGMA-51, our findings reveal how to exploit synthetic data for the HOI detection task when real labeled data are scarce or unavailable. Specifically, by leveraging only 10% of real labeled data, we achieve improvements in Overall AP compared to baselines trained exclusively on real data of: +5.67% on EPIC-KITCHENS VISOR, +8.24% on EgoHOS, and +11.69% on ENIGMA-51. Our analysis is supported by a novel data generation pipeline and the newly introduced HOI-Synth benchmark which augments existing datasets with synthetic images of hand-object interactions automatically labeled with hand-object contact states, bounding boxes, and pixel-wise segmentation masks.</p>
+            </div>
         </div>
         <div class="text-center">
             <a href="https://github.com/fpv-iplab/HOI-Synth" target="_blank" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">GitHub</a>
@@ -99,12 +101,12 @@
     <div class="container-xxl fs-6 py-5 wow fadeInUp" data-wow-delay="0.1s">
         <a class="anchor" id="hoi_synth_pipeline"></a>
         <div class="text-center">
-            <h6 class="section-title bg-white text-center text-primary px-3">HOI-Synth Data Generation Pipeline</h6>
+            <h6 class="section-title bg-white text-center text-primary px-3">Data Generation Pipeline</h6>
         </div>
-        <div class="text-left text-lg-left mt-sm-2">
+        <div class="container text-left text-lg-left mt-sm-2">
             <p class="mb-4 justify"><i class="fa fa-arrow-right text-primary me-2"></i>Our pipeline relies on state-of-the-art datasets and components to enable an accurate generation of egocentric images of hand-object interactions. We first select a random hand-object grasp from the DexGraspNet dataset, which is fit to a randomly generated human model and integrated with the appropriate object mesh specified in the hand-object grasp. We then select a random environment from the HM3D dataset and place the human-object model in the environment. We finally place a virtual camera at human eye level to capture the scene from the first-person point of view. </p>
         </div>
-        <video class="img-fluid" src="video/hoi_synth_pipeline.mp4" autoplay muted loop>Your browser does not support the video tag.</video>
+        <video class="img-fluid" src="video/hoi_synth_pipeline.mp4" width="103%" style="margin-left: -3px" autoplay muted loop>Your browser does not support the video tag.</video>
     </div>
     <!-- HOI-Synth Data Generation Pipeline End -->
 
@@ -113,68 +115,59 @@
     <!-- HOI-Synth Benchmark Start -->
     <div class="container-xxl py-5">
         <a class="anchor" id="hoi_synth_benchmark"></a>
-        <div class="text-center">
-            <h6 class="section-title bg-white text-center text-primary px-3">HOI-Synth Benchmark</h6>
-            <div class="text-left text-lg-left mt-sm-2">
-                <p class="mb-4 justify"><i class="fa fa-arrow-right text-primary me-2"></i>The HOI-Synth benchmark extends three established datasets of egocentric images designed to study hand-object interaction detection, EPIC-KITCHENS VISOR, EgoHOS, and ENIGMA-51, with automatically labeled synthetic data obtained through the proposed HOI generation pipeline. </p>
+        <div class="row g-4 justify-content-center">
+            <div class="text-center">
+                <h6 class="section-title bg-white text-center text-primary px-3">HOI-Synth Benchmark</h6>
+                <div class="container text-lg-left mt-sm-2">
+                    <p class="mb-4 justify"><i class="fa fa-arrow-right text-primary me-2"></i>The HOI-Synth benchmark extends three established datasets of egocentric images designed to study hand-object interaction detection, EPIC-KITCHENS VISOR, EgoHOS, and ENIGMA-51, with automatically labeled synthetic data obtained through the proposed HOI generation pipeline. </p>
+                </div>
+            </div>
+            <div class="col-lg-12 col-sm-12 col-12 wow fadeInUp" data-wow-delay="0.1s">
+                <img class="img-fluid" src="img/HOI-Synth.png" alt="" style="object-fit: cover;">
             </div>
         </div>
 
         <div class="container">
-            <div class="row g-5 justify-content-center">
-                <div class="col-lg-8 col-sm-8 col-8 wow fadeInUp" data-wow-delay="0.1s">
-                    <img class="img-fluid" src="img/HOI-Synth.png" alt="" style="object-fit: cover;">
-                </div>
-                
-                <div class="col-lg-12 col-sm-12 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="container">
-                        <div class="row g-4">
-
-                            <div class="col-lg-3 col-sm-6 col-6 wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="service-item text-center pt-3">
-                                    <div class="p-4">
-                                        <i class="fa fa-3x fa-images text-primary mb-4"></i>
-                                        <h5 class="mb-3">RGB<br/> Images</h5>
-                                        <h3 data-toggle="counter-up">75460</h3>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-3 col-sm-6 col-6 wow fadeInUp" data-wow-delay="0.3s">
-                                <div class="service-item text-center pt-3">
-                                    <div class="p-4">
-                                        <i class="fa fa-3x fa-hand-paper text-primary mb-4"></i>
-                                        <h5 class="mb-3">Hand<br/> annotations</h5>
-                                        <h3 data-toggle="counter-up">141778</h3>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-3 col-sm-6 col-6 wow fadeInUp" data-wow-delay="0.5s">
-                                <div class="service-item text-center pt-3">
-                                    <div class="p-4">
-                                        <i class="fa fa-3x fa-object-group text-primary mb-4"></i>
-                                        <h5 class="mb-3">Object<br/> annotations</h5>
-                                        <h3 data-toggle="counter-up">101525</h3>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-3 col-sm-6 col-6 wow fadeInUp" data-wow-delay="0.7s">
-                                <div class="service-item text-center pt-3">
-                                    <div class="p-4">
-                                        <i class="fa fa-3x fa-tools text-primary mb-4"></i>
-                                        <h5 class="mb-3">Interaction<br/> frames</h5>
-                                        <h3 data-toggle="counter-up">101625</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            
+            <div class="row g-4 justify-content-center wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-3 col-sm-6 col-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-images text-primary mb-4"></i>
+                            <h5 class="mb-3">RGB<br/> Images</h5>
+                            <h3 data-toggle="counter-up">75460</h3>
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-3 col-sm-6 col-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-hand-paper text-primary mb-4"></i>
+                            <h5 class="mb-3">Hand<br/> annotations</h5>
+                            <h3 data-toggle="counter-up">141778</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-object-group text-primary mb-4"></i>
+                            <h5 class="mb-3">Object<br/> annotations</h5>
+                            <h3 data-toggle="counter-up">101525</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-tools text-primary mb-4"></i>
+                            <h5 class="mb-3">Interaction<br/> frames</h5>
+                            <h3 data-toggle="counter-up">101625</h3>
+                        </div>
+                    </div>
+                </div>        
             </div>
         </div>
+
     </div>
 
     <!-- HOI-Synth Benchmark End -->
@@ -225,8 +218,8 @@
                         <div class="ribbon">Pipeline</div>
                         <div class="p-4">
                             <i class="fa fa-3x fa-cube text-primary mb-4"></i>
-                            <h5 class="mb-3">Data Generation Pipeline</h5>
-                            <a class="btn btn-primary" href="https://github.com/fpv-iplab/HOI-Synth?tab=readme-ov-file#data-generation-pipeline">Download</a>
+                            <h5 class="mb-3">Simulator</h5>
+                            <a class="btn btn-primary" href="https://github.com/fpv-iplab/HOI-Synth?tab=readme-ov-file#data-generation-pipeline">GitHub</a>
                         </div>
                     </div>
                 </div>
@@ -282,14 +275,14 @@
                 <h6 class="section-title bg-white text-center text-primary px-3">Paper</h6>
             </div>
             <div class="container text-left">
-                <p class="mb-4"><i class="fa fa-arrow-right text-primary me-2"></i>Leonardi, R., Furnari, A., Ragusa, F., & Farinella, G. M. (2023). Are Synthetic Data Useful for Egocentric Hand-Object Interaction Detection? An Investigation and the HOI-Synth Domain Adaptation Benchmark. arXiv preprint arXiv:2312.02672. Cite our paper: <a href="https://arxiv.org/pdf/2312.02672" target="_blank">ArXiv</a>. </p>
+                <p class="mb-4"><i class="fa fa-arrow-right text-primary me-2 justify"></i>Leonardi, R., Furnari, A., Ragusa, F., & Farinella, G. M. (2023). Are Synthetic Data Useful for Egocentric Hand-Object Interaction Detection? An Investigation and the HOI-Synth Domain Adaptation Benchmark. arXiv preprint arXiv:2312.02672. Cite our paper: <a href="https://arxiv.org/pdf/2312.02672" target="_blank">ArXiv</a>. </p>
 <pre>@article{leonardi2023synthetic,
     title={Are Synthetic Data Useful for Egocentric Hand-Object Interaction Detection? An Investigation and the HOI-Synth Domain Adaptation Benchmark},
     author={Leonardi, Rosario and Furnari, Antonino and Ragusa, Francesco and Farinella, Giovanni Maria},
     journal={arXiv preprint arXiv:2312.02672},
     year={2023}
 }</pre>
-                <p class="mb-4"><i class="fa fa-arrow-right text-primary me-2"></i>Visit our page dedicated to <a class="border-bottom" href="https://iplab.dmi.unict.it/fpv/" target="_blank">First Person Vision Research</a> for other related publications.</p>
+                <p class="mb-4"><i class="fa fa-arrow-right text-primary me-2 justify"></i>Visit our page dedicated to <a class="border-bottom" href="https://iplab.dmi.unict.it/fpv/" target="_blank">First Person Vision Research</a> for other related publications.</p>
             </div>
         </div>
     </div>
@@ -308,7 +301,7 @@
             </div>
 
             <div class="row g-4">
-                <div class="col-lg-3 col-sm-6 col-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-3 col-sm-8 col-8 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item bg-light">
                         <div class="overflow-hidden">
                             <img class="img-fluid" src="img/faces/RL.jpeg" alt="">
@@ -326,7 +319,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-sm-6 col-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="col-lg-3 col-sm-8 col-8 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="team-item bg-light">
                         <div class="overflow-hidden">
                             <img class="img-fluid" src="img/faces/AF.jpg" alt="">
@@ -345,7 +338,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-sm-6 col-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="col-lg-3 col-sm-8 col-8 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="team-item bg-light">
                         <div class="overflow-hidden">
                             <img class="img-fluid" src="img/faces/FR.jpg" alt="">
@@ -364,7 +357,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-sm-6 col-6 wow fadeInUp" data-wow-delay="0.7s">
+                <div class="col-lg-3 col-sm-8 col-8 wow fadeInUp" data-wow-delay="0.7s">
                     <div class="team-item bg-light">
                         <div class="overflow-hidden">
                             <img class="img-fluid" src="img/faces/GMF.jpg" alt="">
