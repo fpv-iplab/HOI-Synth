@@ -29,7 +29,7 @@ If you use our HOI-Synth benchmark, data generation pipeline or this code for yo
 
 
 ## HOI-Synth benchmark
-The HOI-Synth benchmark extends three established datasets of egocentric images designed to study hand-object interaction detection, EPIC-KITCHENS VISOR [1], EgoHOS [2], and ENIGMA-51 [3], with automatically labeled synthetic data obtained through the proposed HOI generation pipeline.
+The HOI-Synth benchmark extends three egocentric datasets designed to study hand-object interaction detection, EPIC-KITCHENS VISOR [1], EgoHOS [2], and ENIGMA-51 [3], with automatically labeled synthetic data obtained through the proposed HOI generation pipeline.
 
 ### Download
 
