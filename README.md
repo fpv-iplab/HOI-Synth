@@ -16,6 +16,7 @@ If you use our HOI-Synth benchmark, data generation pipeline or this code for yo
   title={Are Synthetic Data Useful for Egocentric Hand-Object Interaction Detection?},
   author={Leonardi, Rosario and Furnari, Antonino and Ragusa, Francesco and Farinella, Giovanni Maria},
   booktitle={European Conference on Computer Vision},
+  volume={3},
   year={2024}
 }
 ```
