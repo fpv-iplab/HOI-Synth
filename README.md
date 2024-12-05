@@ -12,12 +12,13 @@ We investigate the effectiveness of synthetic data in enhancing egocentric hand-
 ## Citation
 If you use our HOI-Synth benchmark, data generation pipeline or this code for your research, please cite our paper:
 ```
-@inproceedings{leonardi2024synthetic,
+@inproceedings{leonardi2025synthetic,
   title={Are Synthetic Data Useful for Egocentric Hand-Object Interaction Detection?},
   author={Leonardi, Rosario and Furnari, Antonino and Ragusa, Francesco and Farinella, Giovanni Maria},
   booktitle={European Conference on Computer Vision},
-  volume={3},
-  year={2024}
+  pages={36--54},
+  year={2025},
+  organization={Springer}
 }
 ```
 
