@@ -1,0 +1,128 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a7d6f1a40c45a2981a6291f0d03337, type: 3}
+  m_Name: Hand-L-Keypoints
+  m_EditorClassIdentifier: 
+  templateID: 43061ead-376a-4721-b502-c0825e2f9194
+  templateName: Hand-L-Keypoints
+  jointTexture: {fileID: 2800000, guid: 89cf1a9215fff0545a8d78ac95776c18, type: 3}
+  occludedJointTexture: {fileID: 2800000, guid: d2f4aa404042de146b01c581edb55ede,
+    type: 3}
+  occludedJointColor: {r: 0, g: 0, b: 0, a: 1}
+  skeletonTexture: {fileID: 0}
+  keypoints:
+  - label: wrist_left
+    associateToRig: 0
+    rigLabel: 0
+    color: {r: 0.53858584, g: 0.2876261, b: 0.08129482, a: 1}
+    selfOcclusionDistance: 0
+  - label: thumb_01_left
+    associateToRig: 0
+    rigLabel: 0
+    color: {r: 0.39927116, g: 0.46995932, b: 0.9620008, a: 1}
+    selfOcclusionDistance: 0
+  - label: thumb_02_left
+    associateToRig: 0
+    rigLabel: 0
+    color: {r: 0.7639345, g: 0.26239967, b: 0.24929233, a: 1}
+    selfOcclusionDistance: 0
+  - label: thumb_03_left
+    associateToRig: 0
+    rigLabel: 0
+    color: {r: 0.018304024, g: 0.48085144, b: 0.79483426, a: 1}
+    selfOcclusionDistance: 0
+  - label: thumb_04_left
+    associateToRig: 0
+    rigLabel: 0
+    color: {r: 0.39256388, g: 0.9408423, b: 0.66769445, a: 1}
+    selfOcclusionDistance: 0
+  - label: index_01_left
+    associateToRig: 0
+    rigLabel: 0
+    color: {r: 0.90403324, g: 0.16569652, b: 0.9871168, a: 1}
+    selfOcclusionDistance: 0
+  - label: index_02_left
+    associateToRig: 0
+    rigLabel: 0
+    color: {r: 0.81791234, g: 0.6998079, b: 0.26748583, a: 1}
+    selfOcclusionDistance: 0
+  - label: index_03_left
+    associateToRig: 0
+    rigLabel: 0
+    color: {r: 0.2290502, g: 0.61669326, b: 0.935119, a: 1}
+    selfOcclusionDistance: 0
+  - label: index_04_left
+    associateToRig: 0
+    rigLabel: 0
+    color: {r: 0.50667953, g: 0.83133507, b: 0.40450504, a: 1}
+    selfOcclusionDistance: 0
+  - label: middle_01_left
+    associateToRig: 0
+    rigLabel: 0
+    color: {r: 0.46329027, g: 0.19239718, b: 0.98885417, a: 1}
+    selfOcclusionDistance: 0
+  - label: middle_02_left
+    associateToRig: 0
+    rigLabel: 0
+    color: {r: 0.38776413, g: 0.8086668, b: 0.7173805, a: 1}
+    selfOcclusionDistance: 0
+  - label: middle_03_left
+    associateToRig: 0
+    rigLabel: 0
+    color: {r: 0.6591829, g: 0.27434352, b: 0.4138732, a: 1}
+    selfOcclusionDistance: 0
+  - label: middle_04_left
+    associateToRig: 0
+    rigLabel: 0
+    color: {r: 0.13793826, g: 0.5463906, b: 0.9121251, a: 1}
+    selfOcclusionDistance: 0
+  - label: ring_01_left
+    associateToRig: 0
+    rigLabel: 0
+    color: {r: 0.92320263, g: 0.9723837, b: 0.21404406, a: 1}
+    selfOcclusionDistance: 0
+  - label: ring_02_left
+    associateToRig: 0
+    rigLabel: 0
+    color: {r: 0.20697893, g: 0.25482574, b: 0.53176403, a: 1}
+    selfOcclusionDistance: 0
+  - label: ring_03_left
+    associateToRig: 0
+    rigLabel: 0
+    color: {r: 0.508885, g: 0.15411092, b: 0.16094029, a: 1}
+    selfOcclusionDistance: 0
+  - label: ring_04_left
+    associateToRig: 0
+    rigLabel: 0
+    color: {r: 0.95372665, g: 0.61514616, b: 0.2622905, a: 1}
+    selfOcclusionDistance: 0
+  - label: pinky_01_left
+    associateToRig: 0
+    rigLabel: 0
+    color: {r: 0.28980464, g: 0.5517003, b: 0.9308352, a: 1}
+    selfOcclusionDistance: 0
+  - label: pinky_02_left
+    associateToRig: 0
+    rigLabel: 0
+    color: {r: 0.22980066, g: 0.2813328, b: 0.8294505, a: 1}
+    selfOcclusionDistance: 0
+  - label: pinky_03_left
+    associateToRig: 0
+    rigLabel: 0
+    color: {r: 0.8315433, g: 0.8955007, b: 0.2575137, a: 1}
+    selfOcclusionDistance: 0
+  - label: pinky_04_left
+    associateToRig: 0
+    rigLabel: 0
+    color: {r: 0.6474403, g: 0.25483802, b: 0.95439047, a: 1}
+    selfOcclusionDistance: 0
+  skeleton: []

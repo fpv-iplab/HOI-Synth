@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 91da51d02ab9ebc459d80d5965d40d19
+timeCreated: 1492869349
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 90477
+  packageName: SerializableDictionary
+  packageVersion: 1.1.0
+  assetPath: Assets/SerializableDictionary/Editor/SerializableDictionaryPropertyDrawer.cs
+  uploadId: 245625

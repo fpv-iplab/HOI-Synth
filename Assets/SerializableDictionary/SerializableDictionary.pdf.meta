@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 8eb73a56b3a6ee64ab2c30cac8878d8f
+timeCreated: 1492869030
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 90477
+  packageName: SerializableDictionary
+  packageVersion: 1.1.0
+  assetPath: Assets/SerializableDictionary/SerializableDictionary.pdf
+  uploadId: 245625

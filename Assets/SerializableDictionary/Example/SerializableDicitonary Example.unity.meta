@@ -1,0 +1,11 @@
+fileFormatVersion: 2
+guid: 6c0758ade4ba74b7493ce3806fa2f38b
+DefaultImporter:
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 90477
+  packageName: SerializableDictionary
+  packageVersion: 1.1.0
+  assetPath: Assets/SerializableDictionary/Example/SerializableDicitonary Example.unity
+  uploadId: 245625

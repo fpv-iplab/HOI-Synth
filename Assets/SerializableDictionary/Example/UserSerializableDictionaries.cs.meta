@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: bd910530dd8f6b5429c65a494644ed09
+timeCreated: 1493639913
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 90477
+  packageName: SerializableDictionary
+  packageVersion: 1.1.0
+  assetPath: Assets/SerializableDictionary/Example/UserSerializableDictionaries.cs
+  uploadId: 245625
