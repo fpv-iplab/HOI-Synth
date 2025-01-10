@@ -84,7 +84,7 @@ For more information, visit the official [ENIGMA-51](https://iplab.dmi.unict.it/
 
 
 ## Data Generation Pipeline
-Coming soon!
+* [Data Generation Pipeline](https://github.com/fpv-iplab/HOI-Synth/tree/data_generation_pipeline)
 
 ## Baselines 
 Coming soon!
