@@ -1,0 +1,57 @@
+MODEL:
+  MASK_ON: True
+  OBJECT_MODULE: False
+  WEIGHTS: "weights/model_final_3f4d2a_at.pkl"
+  BACKBONE:
+    NAME: build_resnet_fpn_backbone
+  META_ARCHITECTURE: "DAobjTwoStagePseudoLabGeneralizedRCNN"
+  RESNETS:
+    DEPTH: 101
+    OUT_FEATURES: ["res2", "res3", "res4", "res5"]
+  FPN:
+    IN_FEATURES: ["res2", "res3", "res4", "res5"]
+  PROPOSAL_GENERATOR:
+    NAME: "PseudoLabRPN"
+  RPN:
+    PRE_NMS_TOPK_TEST: 6000
+    POST_NMS_TOPK_TEST: 1000
+    IN_FEATURES: ["p2", "p3", "p4", "p5", "p6"]
+  ROI_HEADS:
+    NAME: "DAHOSROIHeads"
+    LOSS: "CrossEntropy"
+    PRE_NMS_TOPK_TEST: 6000
+    POST_NMS_TOPK_TEST: 1000
+    IN_FEATURES: ["p2"]
+  ROI_BOX_HEAD:
+    TRAIN_ON_PRED_BOXES: True
+    NAME: "FastRCNNConvFCHead"
+    NUM_FC: 2
+    POOLER_RESOLUTION: 7
+  ROI_MASK_HEAD:
+    NUM_CONV: 4
+    POOLER_RESOLUTION: 14
+    POOLER_TYPE: ""  # No RoI pooling, let the head process image features directly
+    NAME: "PointRendMaskHead"
+    FC_DIM: 1024
+    NUM_FC: 2
+    OUTPUT_SIDE_RESOLUTION: 7
+    IN_FEATURES: ["p2"]  # for the coarse mask head
+    POINT_HEAD_ON: True
+  POINT_HEAD:
+    FC_DIM: 256
+    NUM_FC: 3
+    IN_FEATURES: ["p2"]
+INPUT:
+  MIN_SIZE_TRAIN: (640, 672, 704, 736, 768, 800)
+  RANDOM_FLIP: "none"
+  MASK_FORMAT: "bitmask"
+SEMISUPNET:
+  BBOX_THRESHOLD: 0.8
+  TEACHER_UPDATE_ITER: 1
+  BURN_UP_STEP: 20000
+  EMA_KEEP_RATE: 0.9996
+  UNSUP_LOSS_WEIGHT: 0.5 # 1.0 is suboptimal
+  SUP_LOSS_WEIGHT: 1.0
+  DIS_TYPE: "p2" #["concate","p2","multi", "res4"]
+  DIS_LOSS_WEIGHT: 0.1
+VERSION: 2
