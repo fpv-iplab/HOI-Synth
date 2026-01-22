@@ -8,10 +8,10 @@ MODEL:
     NUM_CLASSES: 2
 DATASETS:
   CROSS_DATASET: True
-  TRAIN: ("(S)hoisynth+visor25-(T)visor",)
-  TRAIN_LABEL: ("(S)hoisynth+visor25-(T)visor",) 
-  TRAIN_IMAGES_PATH: ("/datasets/HOI-Synth/visor_egohos_synth/images_combined_visor", )
-  TRAIN_ANNOTATIONS_PATH: ("/datasets/HOI-Synth/visor_egohos_synth/annotations/train_25.json", )
+  TRAIN: ("S_hoisynth-T_visor",)
+  TRAIN_LABEL: ("S_hoisynth-T_visor",) 
+  TRAIN_IMAGES_PATH: ("/datasets/HOI-Synth/visor_egohos_synth/images", )
+  TRAIN_ANNOTATIONS_PATH: ("/datasets/HOI-Synth/visor_egohos_synth/annotations/train.json", )
   TEST: ("labeled_val",)
   TEST_IMAGES_PATH: ("/datasets/HOI-Synth/visor/images", )
   TEST_ANNOTATIONS_PATH: ("/datasets/HOI-Synth/visor/annotations/val.json", )
@@ -29,7 +29,7 @@ SOLVER:
   IMG_PER_BATCH_LABEL: 4
   IMG_PER_BATCH_UNLABEL: 4
   IMS_PER_BATCH: 12
-  BASE_LR: 0.0005
+  BASE_LR: 0.00025
   WARMUP_FACTOR: 0.0001
   WARMUP_ITERS: 1000
   WARMUP_METHOD: linear

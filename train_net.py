@@ -63,7 +63,7 @@ if __name__ == "__main__":
 
     parser = default_argument_parser()
     parser._option_string_actions["--config-file"].default = (
-        "./configs/da_hos_resnet_101-FPN/VISOR/(S)hoisynth-(T)visor.yaml"
+        "./configs/da_hos_resnet_101-FPN/VISOR/S_hoisynth-T_visor.yaml"
     )
 
     parser.add_argument(
