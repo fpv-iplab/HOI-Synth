@@ -1,0 +1,197 @@
+"""
+This is the evaluation code for epick. 
+Difference from coco evaluation: evaluate handside and contact state.
+"""
+
+import os
+import pdb
+import numpy as np
+import itertools
+from collections import OrderedDict
+import copy
+
+import pycocotools.mask as mask_util
+
+from detectron2.structures import Boxes, BoxMode, pairwise_iou
+from detectron2.data import MetadataCatalog
+from detectron2.evaluation import COCOEvaluator
+from detectron2.evaluation.coco_evaluation import instances_to_coco_json
+from detectron2.utils.file_io import PathManager
+import detectron2.utils.comm as comm
+
+from da_hos.evaluation.hos_postprocessing import hos_postprocessing, combineHO_postprocessing
+
+import torch
+
+
+class EPICKEvaluator(COCOEvaluator):
+
+    def __init__(self, dataset_name, output_dir=None, eval_task=None, tasks=None):
+        super().__init__(dataset_name, output_dir=output_dir)
+        self.eval_task = eval_task
+        assert self.eval_task in [
+            "hand_obj",
+            "handside",
+            "contact",
+            "combineHO",
+        ], f"Error: target not in ['hand_obj', 'handside', 'contact', 'combineHO']"
+        print(f"**Evaluation target: {self.eval_task}")
+        if tasks is not None:
+            self._tasks = tasks
+        self._metadata = MetadataCatalog.get(dataset_name)
+        print(f"dataset name = {dataset_name}")
+        print(f"meta data = {self._metadata}")
+
+    def process(self, inputs, outputs):
+        """
+        Re-format the inputs and outputs to make handside and contact predictions as another 4 classes.
+
+        Args:
+            inputs: the inputs to a COCO model (e.g., GeneralizedRCNN).
+                It is a list of dict. Each dict corresponds to an image and
+                contains keys like "height", "width", "file_name", "image_id".
+            outputs: the outputs of a COCO model. It is a list of dicts with key
+                "instances" that contains :class:`Instances`.
+        """
+
+        for input, output in zip(inputs, outputs):
+            prediction = {"image_id": input["image_id"]}
+
+            # pdb.set_trace()
+            # print(f'input = {input}')
+            # print(f'output = {output}\n')
+
+            if "instances" in output:
+                tmp = output
+                instances = output["instances"].to(self._cpu_device)
+                if self.eval_task == "hand_obj":
+                    # post-processing: link hand and obj
+                    output["instances"] = hos_postprocessing(instances)
+                elif self.eval_task in ["handside", "contact"]:
+                    # only keep hand preds
+                    output["instances"] = instances[instances.pred_classes == 0]
+                elif self.eval_task == "combineHO":
+                    # combine hand and obj mask
+                    output["instances"] = combineHO_postprocessing(instances)
+
+                prediction["instances"] = instances_to_coco_json_handside_or_contact(
+                    output["instances"], input["image_id"], eval_task=self.eval_task
+                )
+
+            if "proposals" in output:
+                prediction["proposals"] = output["proposals"].to(self._cpu_device)
+            if len(prediction) > 1:
+                self._predictions.append(prediction)
+
+            # print(f"Process: out={len(tmp['instances'])}; #hand={len(tmp['instances'][tmp['instances'].pred_classes==0]) if len(tmp['instances'])!=0 else ''}; #obj={len(tmp['instances'][tmp['instances'].pred_classes==1]) if len(tmp['instances'])!=0 else ''}; ")
+            # print(f"Process: out2={len(output['instances'])}; #hand={len(output['instances'][output['instances'].pred_classes==0]) if len(output['instances'])!=0 else ''};  #obj={len(output['instances'][output['instances'].pred_classes==1]) if len(output['instances'])!=0 else ''}\n")
+
+    def evaluate(self, img_ids=None):
+        """
+        Args:
+            img_ids: a list of image IDs to evaluate on. Default to None for the whole dataset
+        """
+        if self._distributed:
+            comm.synchronize()
+            predictions = comm.gather(self._predictions, dst=0)
+            predictions = list(itertools.chain(*predictions))
+
+            if not comm.is_main_process():
+                return {}
+        else:
+            predictions = self._predictions
+
+        if len(predictions) == 0:
+            self._logger.warning("[COCOEvaluator] Did not receive valid predictions.")
+            return {}
+
+        if self._output_dir:
+            PathManager.mkdirs(self._output_dir)
+            file_path = os.path.join(self._output_dir, f"instances_predictions_{self.eval_task}.pth")
+            with PathManager.open(file_path, "wb") as f:
+                torch.save(predictions, f)
+
+        self._results = OrderedDict()
+        if "proposals" in predictions[0]:
+            self._eval_box_proposals(predictions)
+        if "instances" in predictions[0]:
+            self._eval_predictions(predictions, img_ids=img_ids)
+        # Copy so the caller can do whatever with results
+        return copy.deepcopy(self._results)
+
+
+def instances_to_coco_json_handside_or_contact(instances, img_id, eval_task=None):
+    """
+    Dump an "Instances" object to a COCO-format json that's used for evaluation.
+
+    Args:
+        instances (Instances):
+        img_id (int): the image id
+
+    Returns:
+        list[dict]: list of json annotations in COCO format.
+    """
+    # print(f'instances = {len(instances)}')
+    num_instance = len(instances)
+    if num_instance == 0:
+        return []
+
+    assert eval_task in [
+        "hand_obj",
+        "handside",
+        "contact",
+        "combineHO",
+    ], "Error: evaluation target should be either 'hand_obj', 'handside', 'contact', 'combineHO'"
+
+    boxes = instances.pred_boxes.tensor.numpy()
+    boxes = BoxMode.convert(boxes, BoxMode.XYXY_ABS, BoxMode.XYWH_ABS)
+    boxes = boxes.tolist()
+    if eval_task in ["hand_obj", "combineHO"]:
+        scores = instances.scores.tolist()
+        classes = instances.pred_classes.tolist()
+    else:
+        if eval_task == "handside":
+            preds = instances.pred_handsides.numpy()
+        elif eval_task == "contact":
+            preds = instances.pred_contacts.numpy()
+        scores = np.max(preds, axis=1).tolist()
+        classes = np.argmax(preds, axis=1).tolist()
+
+    has_mask = instances.has("pred_masks")
+    if has_mask:
+        # use RLE to encode the masks, because they are too large and takes memory
+        # since this evaluator stores outputs of the entire dataset
+        rles = [
+            mask_util.encode(np.array(mask[:, :, None], order="F", dtype="uint8"))[0] for mask in instances.pred_masks
+        ]
+        for rle in rles:
+            # "counts" is an array encoded by mask_util as a byte-stream. Python3's
+            # json writer which always produces strings cannot serialize a bytestream
+            # unless you decode it. Thankfully, utf-8 works out (which is also what
+            # the pycocotools/_mask.pyx does).
+            rle["counts"] = rle["counts"].decode("utf-8")
+
+    has_keypoints = instances.has("pred_keypoints")
+    if has_keypoints:
+        keypoints = instances.pred_keypoints
+
+    results = []
+    for k in range(num_instance):
+        result = {
+            "image_id": img_id,
+            "category_id": classes[k],
+            "bbox": boxes[k],
+            "score": scores[k],
+        }
+        if has_mask:
+            result["segmentation"] = rles[k]
+        if has_keypoints:
+            # In COCO annotations,
+            # keypoints coordinates are pixel indices.
+            # However our predictions are floating point coordinates.
+            # Therefore we subtract 0.5 to be consistent with the annotation format.
+            # This is the inverse of data loading logic in `datasets/coco.py`.
+            keypoints[k][:, :2] -= 0.5
+            result["keypoints"] = keypoints[k].flatten().tolist()
+        results.append(result)
+    return results
