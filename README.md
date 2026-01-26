@@ -1,13 +1,10 @@
-# Are Synthetic Data Useful for Egocentric Hand-Object Interaction Detection?
+# HOI-Synth
 ![](assets/images/hoi_synth_pipeline.gif)
 
 ## Overview
-We investigate the effectiveness of synthetic data in enhancing egocentric hand-object interaction detection. Via extensive experiments and comparative analyses on three egocentric datasets, VISOR , EgoHOS, and ENIGMA-51, our findings reveal how to exploit synthetic data for the HOI detection task when real labeled data are scarce or unavailable. Specifically, by leveraging only 10% of real labeled data, we achieve improvements in Overall AP compared to baselines trained exclusively on real data of: +5.67% on EPIC-KITCHENS VISOR, +8.24% on EgoHOS, and +11.69% on ENIGMA-51. Our analysis is supported by a novel data generation pipeline and the newly introduced HOI-Synth benchmark which augments existing datasets with synthetic images of hand-object interactions automatically labeled with hand-object contact states, bounding boxes, and pixel-wise segmentation masks.
+We investigate the effectiveness of synthetic data in enhancing egocentric hand-object interaction detection. Via extensive experiments on **VISOR**, **EgoHOS**, and **ENIGMA-51**, our findings reveal how to exploit synthetic data when real labeled data are scarce, achieving gains of **+5.67%** (VISOR), **+8.24%** (EgoHOS), and **+11.69%** (ENIGMA-51) with only 10% real labels. We conduct a systematic study on data alignment, demonstrating that aligning objects, grasps, and environments to the target domain is essential for bridging the synthetic-to-real gap. Our analysis is supported by a novel generation pipeline and the **HOI-Synth** benchmark, which augments existing datasets with synthetic images automatically labeled with contact states, bounding boxes, and pixel-wise masks.
 
-[Project Page](https://fpv-iplab.github.io/HOI-Synth/) - [Paper](https://arxiv.org/pdf/2312.02672)
-
-## Updates
-* 01/07/2024: **Accepted at European Conference on Computer Vision (ECCV) 2024!** <br>
+[Project Page](https://fpv-iplab.github.io/HOI-Synth/) - [Conference version](https://arxiv.org/pdf/2312.02672)
 
 ## Citation
 If you use our HOI-Synth benchmark, data generation pipeline or this code for your research, please cite our paper:
@@ -21,6 +18,8 @@ If you use our HOI-Synth benchmark, data generation pipeline or this code for yo
   organization={Springer}
 }
 ```
+
+Note: An extended journal version of this work (including alignment analysis and backbone scaling) is currently under review. We will update this citation upon acceptance.
 
 ## Table of Contents
 1. [HOI-Synth benchmark](#hoi-synth-benchmark)
@@ -87,7 +86,7 @@ For more information, visit the official [ENIGMA-51](https://iplab.dmi.unict.it/
 * [Data Generation Pipeline](https://github.com/fpv-iplab/HOI-Synth/tree/data_generation_pipeline)
 
 ## Baselines 
-Coming soon!
+* [Baselines](https://github.com/fpv-iplab/HOI-Synth/tree/baseline-code)
 
 ## License
 This project is licensed under the [Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/).
