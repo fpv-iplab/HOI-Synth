@@ -10,6 +10,39 @@ This repository contains the code, pretrained models, and configuration files fo
 
 ## Installation
 
+### Prerequisites
+The code is tested on **Ubuntu 24.04** with **Python 3.10** and **CUDA 12.x**.
+
+### 1. Clone the repository
+```bash
+git clone -b baseline-code [https://github.com/fpv-iplab/HOI-Synth.git](https://github.com/fpv-iplab/HOI-Synth.git)
+cd HOI-Synth
+
+```
+
+### 2. Environment Setup
+
+We provide an `environment.yml` file to automatically install all dependencies, including PyTorch and Detectron2.
+
+```bash
+# 1. Create the environment
+conda env create -f environment.yml
+
+# 2. Activate the environment
+conda activate hoisynth
+
+```
+
+### 3. Verify Installation
+
+To ensure Detectron2 and PyTorch are correctly communicating with your GPU:
+
+```bash
+python -c "import torch; print(f'Torch: {torch.__version__}, CUDA: {torch.cuda.is_available()}')"
+# Should print True for CUDA
+
+```
+
 ## Model Zoo
 
 We provide pre-trained models for different datasets and training settings. All models are trained using the configurations released in this repository and can be directly used for evaluation or fine-tuning.
@@ -89,8 +122,6 @@ The `--task` argument specifies the prediction head to be evaluated and can take
 - `handside`: hand side classification (left / right)
 - `contact`: hand–object contact state classification
 
-## Citation
-
 ## Acknowledgements
 
 This code is heavily built upon the following repositories. We thank the authors for their great work:
@@ -100,3 +131,44 @@ This code is heavily built upon the following repositories. We thank the authors
 - [VISOR-HOS](https://github.com/epic-kitchens/VISOR-HOS)
 
 Please adhere to the respective licenses of these repositories if you plan to use or redistribute this code.
+
+
+
+
+Visto che hai **Ubuntu 24.04** (molto recente) e **CUDA 12.9** (nuovissimo), c'è una cosa importante da sapere: PyTorch non ha ancora una build ufficiale per CUDA 12.9, ma quelle per **CUDA 12.4** o **12.6** funzionano perfettamente (la driver 12.9 è retrocompatibile).
+
+Inoltre, la versione `torch==2.9.1` che avevi nella lista precedente **non esiste** (l'ultima stabile è la 2.6.0). Probabilmente era un typo o una nightly.
+
+Ecco il file **`environment.yml`** pulito e modernizzato per la tua configurazione, che installerà l'ultima versione stabile di PyTorch compatibile e compilerà Detectron2 correttamente.
+
+### File: `environment.yml`
+
+Crea questo file nella cartella del progetto:
+
+```yaml
+name: hoisynth
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  # Librerie di supporto
+  - numpy
+  - matplotlib
+  - tqdm
+  - requests
+  # Dipendenze di sistema utili per evitare errori con OpenCV/Detectron su Ubuntu 24.04
+  - libglib
+  - pip:
+    # Scarica l'ultima versione stabile di PyTorch compatibile con CUDA 12
+    - torch>=2.5.0
+    - torchvision>=0.20.0
+    - opencv-python
+    - ipykernel
+    - ipywidgets
+    # Detectron2: Installiamo da sorgente per garantire compatibilità con il tuo CUDA 12.9
+    - "git+https://github.com/facebookresearch/detectron2.git"
+
+```
