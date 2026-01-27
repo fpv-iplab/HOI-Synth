@@ -1,0 +1,37 @@
+_BASE_: ../Base-DA-HOS-R101-FPN.yaml
+MODEL:
+  OBJECT_MODULE: False
+  MASK_ON: True
+  ROI_HEADS:
+    NUM_CLASSES: 2
+  POINT_HEAD:
+    NUM_CLASSES: 2
+DATASETS:
+  CROSS_DATASET: True
+  TRAIN: ("S_hoisynth_outdomain+enigma50-T_enigma",)
+  TRAIN_LABEL: ("S_hoisynth_outdomain+enigma50-T_enigma",) 
+  TRAIN_IMAGES_PATH: ("/datasets/HOI-Synth/enigma-51_synth/out-domain/images", )
+  TRAIN_ANNOTATIONS_PATH: ("/datasets/HOI-Synth/enigma-51_synth/out-domain/annotations/train_50_combined_enigma-51.json", )
+  TEST: ("labeled_val",)
+  TEST_IMAGES_PATH: ("/datasets/HOI-Synth/enigma-51/images", )
+  TEST_ANNOTATIONS_PATH: ("/datasets/HOI-Synth/enigma-51/annotations/val.json", )
+  TRAIN_UNLABEL: ("unlabeled_train",)
+  TRAIN_UNLABEL_IMAGES_PATH: ("/datasets/HOI-Synth/enigma-51/images", )
+  TRAIN_UNLABEL_ANNOTATIONS_PATH: ("/datasets/HOI-Synth/enigma-51/annotations/train.json", )
+TEST:
+  EVAL_PERIOD: 10000
+SOLVER:
+  LR_SCHEDULER_NAME: "WarmupTwoStageMultiStepLR"
+  STEPS: (30000, )
+  FACTOR_LIST: (1, 0.1, )
+  MAX_ITER: 50000
+  CHECKPOINT_PERIOD: 10000
+  IMG_PER_BATCH_LABEL: 4
+  IMG_PER_BATCH_UNLABEL: 4
+  IMS_PER_BATCH: 16
+  BASE_LR: 0.0005
+  WARMUP_FACTOR: 0.0001
+  WARMUP_ITERS: 1000
+  WARMUP_METHOD: linear
+SEMISUPNET:
+  BURN_UP_STEP: 20000

@@ -9,6 +9,7 @@ from detectron2.modeling import build_model
 
 from da_hos.engine.trainer_da_hos import DAHOSTrainer
 from da_hos.modeling.meta_arch.ts_ensemble import EnsembleTSModel
+import da_hos.modeling
 
 
 class DAHOSPredictor:
