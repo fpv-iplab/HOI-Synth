@@ -57,7 +57,11 @@ For the Enigma-51 synthetic images (`enigma-51_synth`), there are three folders 
 - **In-domain**
 - **Out-domain**
 - **Out-domain with FOV of the target dataset**
+---
 
+#### Aligned Data
+For experiments focused on data alignment, please download the aligned set here:
+* [Aligned Annotations & Images](https://iplab.dmi.unict.it/sharing2/HOI-Synth/aligned_sets.zip)
 ---
 
 #### EPIC-KITCHENS VISOR
