@@ -57,6 +57,15 @@ We provide pre-trained models for different datasets and training settings. All 
 |  SSDA   | ResNet-101-FPN | HOI-Synth + VISOR 50%  |     46.47     |  [model](https://iplab.dmi.unict.it/sharing2/HOI-Synth/checkpoints/da_hos_resnet_101-FPN/VISOR/S_hoisynth+visor50-T_visor/model.pth) \| [config](configs/da_hos_resnet_101-FPN/VISOR/S_hoisynth+visor50-T_visor.yaml)  |
 |  FSDA   | ResNet-101-FPN | HOI-Synth + VISOR 100% |     46.48     | [model](https://iplab.dmi.unict.it/sharing2/HOI-Synth/checkpoints/da_hos_resnet_101-FPN/VISOR/S_hoisynth+visor100-T_visor/model.pth) \| [config](configs/da_hos_resnet_101-FPN/VISOR/S_hoisynth+visor100-T_visor.yaml) |
 
+### VISOR Aligned Sets
+
+| Setting |    Backbone    |      Training Set      | Overall AP@50 |                                                                                                        Download                                                                                                        |
+| :-----: | :------------: | :--------------------: | :-----------: | :-------------------------------------------------------
+|  UDA   | ResNet-101-FPN | HOI-Synth Aligned Environments (5k)  |     31.59     |  [model](https://iplab.dmi.unict.it/sharing2/HOI-Synth/checkpoints/da_hos_resnet_101-FPN/VISOR/aligned_sets/S_hoisynth_aligned_environments-T_visor/model.pth) \| [config](configs/da_hos_resnet_101-FPN/VISOR/S_hoisynth_aligned_environments-T_visor.yaml)  |
+|  UDA   | ResNet-101-FPN | HOI-Synth Aligned Objects (5k) |     32.60     |  [model](https://iplab.dmi.unict.it/sharing2/HOI-Synth/checkpoints/da_hos_resnet_101-FPN/VISOR/aligned_sets/S_hoisynth_aligned_objects-T_visor/model.pth) \| [config](configs/da_hos_resnet_101-FPN/VISOR/S_hoisynth_aligned_objects-T_visor.yaml)  |
+|  UDA   | ResNet-101-FPN | HOI-Synth Aligned Grasps (5k) |     31.84     |  [model](https://iplab.dmi.unict.it/sharing2/HOI-Synth/checkpoints/da_hos_resnet_101-FPN/VISOR/aligned_sets/S_hoisynth_aligned_grasps-T_visor/model.pth) \| [config](configs/da_hos_resnet_101-FPN/VISOR/S_hoisynth_aligned_grasps-T_visor.yaml)  |
+|  UDA   | ResNet-101-FPN | HOI-Synth Aligned All |     33.98     | [model](https://iplab.dmi.unict.it/sharing2/HOI-Synth/checkpoints/da_hos_resnet_101-FPN/VISOR/aligned_sets/S_hoisynth_aligned_all-T_visor/model.pth) \| [config](configs/da_hos_resnet_101-FPN/VISOR/S_hoisynth_aligned_all-T_visor.yaml) |
+
 ### EgoHOS
 | Setting |    Backbone    |      Training Set      | Overall AP@50 |                                                                                                        Download                                                                                                        |
 | :-----: | :------------: | :--------------------: | :-----------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
