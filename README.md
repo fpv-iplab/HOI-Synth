@@ -47,6 +47,14 @@ python -c "import torch; print(f'Torch: {torch.__version__}, CUDA: {torch.cuda.i
 
 We provide pre-trained models for different datasets and training settings. All models are trained using the configurations released in this repository and can be directly used for evaluation or fine-tuning.
 
+### Downloading Pretrained Weights
+
+Download the pretrained models:
+- [**ResNet-101-FPN**](https://iplab.dmi.unict.it/sharing2/HOI-Synth/weights/model_final_3f4d2a_at.pkl)
+- [**ConvNeXt-Small**](https://iplab.dmi.unict.it/sharing2/HOI-Synth/weights/convnext_small.pkl)
+
+After downloading, place the files in the `weights/` directory.
+
 ### VISOR
 
 | Setting |    Backbone    |      Training Set      | Overall AP@50 |                                                                                                        Download                                                                                                        |
@@ -65,6 +73,22 @@ We provide pre-trained models for different datasets and training settings. All 
 |  UDA   | ResNet-101-FPN | HOI-Synth Aligned Objects (5k) |     32.60     |  [model](https://iplab.dmi.unict.it/sharing2/HOI-Synth/checkpoints/da_hos_resnet_101-FPN/VISOR/aligned_sets/S_hoisynth_aligned_objects-T_visor/model.pth) \| [config](configs/da_hos_resnet_101-FPN/VISOR/S_hoisynth_aligned_objects-T_visor.yaml)  |
 |  UDA   | ResNet-101-FPN | HOI-Synth Aligned Grasps (5k) |     31.84     |  [model](https://iplab.dmi.unict.it/sharing2/HOI-Synth/checkpoints/da_hos_resnet_101-FPN/VISOR/aligned_sets/S_hoisynth_aligned_grasps-T_visor/model.pth) \| [config](configs/da_hos_resnet_101-FPN/VISOR/S_hoisynth_aligned_grasps-T_visor.yaml)  |
 |  UDA   | ResNet-101-FPN | HOI-Synth Aligned All |     33.98     | [model](https://iplab.dmi.unict.it/sharing2/HOI-Synth/checkpoints/da_hos_resnet_101-FPN/VISOR/aligned_sets/S_hoisynth_aligned_all-T_visor/model.pth) \| [config](configs/da_hos_resnet_101-FPN/VISOR/S_hoisynth_aligned_all-T_visor.yaml) |
+
+### VISOR – ConvNeXt
+
+To replicate the experiments with the ConvNeXt backbone, clone the ConvNeXt implementation inside the `projects` directory:
+
+```bash
+cd projects
+git clone --branch detectron2-port https://github.com/shivamsnaik/ConvNeXt.git
+```
+
+Then, follow the installation instructions provided in the cloned repository to install the required dependencies.
+
+| Setting |    Backbone    |      Training Set      | Overall AP@50 |                                                                                                        Download 
+| :-----: | :------------: | :--------------------: | :-----------: | :-------------------------------------------------------
+|  FSDA   | ConvNeXt-S | HOI-Synth + VISOR 100%   |     XX.XX    |  [model]() \| [config](configs/da_hos_ConvNeXt/VISOR/ConvNeXt_S_hoisynth+visor100-T_visor.yaml)  |
+|
 
 ### EgoHOS
 | Setting |    Backbone    |      Training Set      | Overall AP@50 |                                                                                                        Download                                                                                                        |

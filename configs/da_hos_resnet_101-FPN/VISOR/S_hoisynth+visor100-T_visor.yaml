@@ -11,7 +11,7 @@ DATASETS:
   TRAIN: ("S_hoisynth+visor100-T_visor",)
   TRAIN_LABEL: ("S_hoisynth+visor100-T_visor",) 
   TRAIN_IMAGES_PATH: ("/datasets/HOI-Synth/visor_egohos_synth/images_combined_visor", )
-  TRAIN_ANNOTATIONS_PATH: ("/datasets/HOI-Synth/visor_egohos_synth/annotations/train_100.json", )
+  TRAIN_ANNOTATIONS_PATH: ("/datasets/HOI-Synth/visor_egohos_synth/annotations/combined_visor/train.json", )
   TEST: ("labeled_val",)
   TEST_IMAGES_PATH: ("/datasets/HOI-Synth/visor/images", )
   TEST_ANNOTATIONS_PATH: ("/datasets/HOI-Synth/visor/annotations/val.json", )
