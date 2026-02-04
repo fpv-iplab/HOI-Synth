@@ -76,19 +76,18 @@ After downloading, place the files in the `weights/` directory.
 
 ### VISOR – ConvNeXt
 
-To replicate the experiments with the ConvNeXt backbone, clone the ConvNeXt implementation inside the `projects` directory:
+To replicate the experiments with the ConvNeXt backbone, clone the [ConvNeXt implementation](https://github.com/shivamsnaik/ConvNeXt.git) inside the `projects` directory:
 
 ```bash
 cd projects
 git clone --branch detectron2-port https://github.com/shivamsnaik/ConvNeXt.git
 ```
 
-Then, follow the installation instructions provided in the cloned repository to install the required dependencies.
+Then, follow the instructions in [INSTALL.md](https://github.com/shivamsnaik/ConvNeXt/blob/detectron2-port/INSTALL.md) to install the missing dependencies. For training, follow the standard procedure using the correct configuration file.
 
 | Setting |    Backbone    |      Training Set      | Overall AP@50 |                                                                                                        Download 
 | :-----: | :------------: | :--------------------: | :-----------: | :-------------------------------------------------------
-|  FSDA   | ConvNeXt-S | HOI-Synth + VISOR 100%   |     XX.XX    |  [model]() \| [config](configs/da_hos_ConvNeXt/VISOR/ConvNeXt_S_hoisynth+visor100-T_visor.yaml)  |
-|
+|  FSDA   | ConvNeXt-S | HOI-Synth + VISOR 100%   |     48.36    |  [model](https://iplab.dmi.unict.it/sharing2/HOI-Synth/checkpoints/da_hos_ConvNeXt/VISOR/model.pth) \| [config](configs/da_hos_ConvNeXt/VISOR/ConvNeXt_S_hoisynth+visor100-T_visor.yaml)  |
 
 ### EgoHOS
 | Setting |    Backbone    |      Training Set      | Overall AP@50 |                                                                                                        Download                                                                                                        |
