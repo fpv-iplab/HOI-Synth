@@ -1,10 +1,16 @@
+<!-- start badges -->
+[![arXiv-conference](https://img.shields.io/badge/arXiv-Conference-red.svg)](https://arxiv.org/abs/2312.02672)
+[![arXiv-journal](https://img.shields.io/badge/arXiv-Journal-red.svg)](https://arxiv.org/abs/2603.29733)
+<!-- end badges -->
+
 # HOI-Synth
+
 ![](assets/images/hoi_synth_pipeline.gif)
 
 ## Overview
 We investigate the effectiveness of synthetic data in enhancing egocentric hand-object interaction detection. Via extensive experiments on **VISOR**, **EgoHOS**, and **ENIGMA-51**, our findings reveal how to exploit synthetic data when real labeled data are scarce, achieving gains of **+5.67%** (VISOR), **+8.24%** (EgoHOS), and **+11.69%** (ENIGMA-51) with only 10% real labels. We conduct a systematic study on data alignment, demonstrating that aligning objects, grasps, and environments to the target domain is essential for bridging the synthetic-to-real gap. Our analysis is supported by a novel generation pipeline and the **HOI-Synth** benchmark, which augments existing datasets with synthetic images automatically labeled with contact states, bounding boxes, and pixel-wise masks.
 
-[Project Page](https://fpv-iplab.github.io/HOI-Synth/) - [Conference version](https://arxiv.org/pdf/2312.02672)
+[Project Page](https://fpv-iplab.github.io/HOI-Synth/) - [Conference version](https://arxiv.org/abs/2312.02672) - [Journal version](https://arxiv.org/abs/2603.29733)
 
 ## Citation
 If you use our HOI-Synth benchmark, data generation pipeline or this code for your research, please cite our paper:
@@ -17,9 +23,8 @@ If you use our HOI-Synth benchmark, data generation pipeline or this code for yo
   year={2025},
   organization={Springer}
 }
-```
 
-Note: An extended journal version of this work (including alignment analysis and backbone scaling) is currently under review. We will update this citation upon acceptance.
+```
 
 ## Table of Contents
 1. [HOI-Synth benchmark](#hoi-synth-benchmark)
